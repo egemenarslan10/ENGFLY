@@ -3,102 +3,982 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ENG FLY | Uçak Bileti</title>
+
+<title>ENG FLY | Uçak Bileti Rezervasyon ve Seyahat Desteği</title>
+
+<meta name="description" content="ENG FLY ile yurt içi ve yurt dışı uçuş seçenekleri hakkında bilgi alın. Rezervasyon, değişiklik ve seyahat desteği için 0850 241 02 26 numaralı hattımızdan bize ulaşın.">
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,Helvetica,sans-serif;color:#172033;background:#f5f8fc}
-header{background:#071a3d;color:#fff;padding:20px 7%;display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:28px;font-weight:800;letter-spacing:1px}.logo span{color:#35b7ff}
-nav a{color:#fff;text-decoration:none;margin-left:28px;font-size:15px}
-.hero{min-height:570px;background:linear-gradient(90deg,rgba(4,19,48,.9),rgba(4,19,48,.3)),url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1800&q=80') center/cover;display:flex;align-items:center;padding:60px 7%}
-.hero-content{max-width:1100px;width:100%;color:#fff}.hero h1{font-size:54px;margin-bottom:14px}.hero p{font-size:20px;margin-bottom:35px}
-.search-box{background:#fff;border-radius:18px;padding:22px;color:#172033;box-shadow:0 15px 40px rgba(0,0,0,.2)}
-.tabs{display:flex;gap:10px;margin-bottom:18px}.tabs button{border:0;background:#eef3f8;padding:11px 18px;border-radius:8px;cursor:pointer}.tabs .active{background:#087df0;color:#fff}
-.fields{display:grid;grid-template-columns:1.2fr 1.2fr 1fr 1fr .8fr;gap:12px}
-.field{border:1px solid #d9e0e8;border-radius:10px;padding:12px}.field small{display:block;color:#697586;margin-bottom:5px}.field input,.field select{width:100%;border:0;outline:0;font-size:15px;background:transparent}
-.search-btn{border:0;border-radius:10px;background:#087df0;color:#fff;font-weight:bold;font-size:16px;cursor:pointer;padding:0 18px}
-section{padding:70px 7%}.title{text-align:center;margin-bottom:35px}.title h2{font-size:34px;margin-bottom:8px}.title p{color:#687386}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 7px 25px rgba(22,38,65,.08)}.card img{width:100%;height:190px;object-fit:cover}.card-body{padding:20px}.card-body h3{margin-bottom:8px}.price{color:#087df0;font-size:22px;font-weight:bold;margin-top:15px}
-.features{background:#fff}.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}.feature{padding:25px;border:1px solid #e6ebf1;border-radius:15px}.icon{font-size:32px;margin-bottom:12px}.feature p{color:#687386;margin-top:8px;line-height:1.5}
-.contact{background:#071a3d;color:#fff;text-align:center}.contact p{color:#cbd6e8;margin:10px 0 25px}.contact-btn{display:inline-block;background:#35b7ff;color:#061735;text-decoration:none;padding:14px 25px;border-radius:10px;font-weight:bold}
-footer{background:#04122c;color:#aebbd0;text-align:center;padding:22px}
-@media(max-width:850px){nav{display:none}.hero h1{font-size:40px}.fields{grid-template-columns:1fr 1fr}.search-btn{height:50px}.cards,.feature-grid{grid-template-columns:1fr}}
-@media(max-width:520px){.hero{min-height:650px;padding:35px 5%}.hero h1{font-size:34px}.search-box{padding:15px}.fields{grid-template-columns:1fr}section{padding:50px 5%}}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    color:#172033;
+    background:#f6f8fc;
+    line-height:1.6;
+}
+
+header{
+    background:#071a3d;
+    color:#fff;
+    padding:18px 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 12px rgba(0,0,0,.12);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#35b7ff;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:24px;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:600;
+}
+
+.header-phone{
+    background:#35b7ff;
+    color:#061735;
+    padding:10px 16px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:800;
+}
+
+.hero{
+    min-height:620px;
+    background:
+    linear-gradient(90deg,rgba(4,19,48,.92),rgba(4,19,48,.45)),
+    url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1800&q=85')
+    center/cover;
+    display:flex;
+    align-items:center;
+    padding:70px 7%;
+}
+
+.hero-inner{
+    width:100%;
+    max-width:1150px;
+    margin:auto;
+}
+
+.hero-text{
+    color:#fff;
+    max-width:720px;
+    margin-bottom:30px;
+}
+
+.hero-text h1{
+    font-size:52px;
+    line-height:1.1;
+    margin-bottom:18px;
+}
+
+.hero-text p{
+    font-size:20px;
+    color:#dce8f8;
+}
+
+.search-box{
+    background:#fff;
+    max-width:1050px;
+    padding:24px;
+    border-radius:18px;
+    box-shadow:0 18px 45px rgba(0,0,0,.22);
+}
+
+.search-title{
+    font-size:20px;
+    font-weight:800;
+    margin-bottom:18px;
+}
+
+.fields{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:12px;
+}
+
+.field{
+    border:1px solid #d9e0e8;
+    border-radius:10px;
+    padding:11px 12px;
+    background:#fff;
+}
+
+.field label{
+    display:block;
+    font-size:12px;
+    color:#697586;
+    margin-bottom:4px;
+}
+
+.field input,
+.field select{
+    border:0;
+    outline:0;
+    width:100%;
+    font-size:15px;
+    color:#172033;
+    background:#fff;
+}
+
+.search-btn{
+    width:100%;
+    margin-top:14px;
+    padding:15px;
+    border:0;
+    border-radius:10px;
+    background:#087df0;
+    color:#fff;
+    font-size:17px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.search-note{
+    font-size:12px;
+    color:#697586;
+    margin-top:10px;
+}
+
+section{
+    padding:75px 7%;
+}
+
+.container{
+    max-width:1150px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:38px;
+}
+
+.section-title h2{
+    font-size:34px;
+    margin-bottom:9px;
+    color:#071a3d;
+}
+
+.section-title p{
+    color:#687386;
+    max-width:720px;
+    margin:auto;
+}
+
+.services{
+    background:#fff;
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.service{
+    padding:28px;
+    border:1px solid #e4e9f0;
+    border-radius:16px;
+    background:#fff;
+    box-shadow:0 8px 25px rgba(20,40,80,.06);
+}
+
+.service-icon{
+    font-size:33px;
+    margin-bottom:12px;
+}
+
+.service h3{
+    color:#071a3d;
+    margin-bottom:8px;
+}
+
+.service p{
+    color:#687386;
+    font-size:15px;
+}
+
+.routes{
+    background:#f6f8fc;
+}
+
+.route-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.route{
+    background:#fff;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(20,40,80,.08);
+}
+
+.route img{
+    width:100%;
+    height:190px;
+    object-fit:cover;
+}
+
+.route-content{
+    padding:22px;
+}
+
+.route-content h3{
+    margin-bottom:7px;
+    color:#071a3d;
+}
+
+.route-content p{
+    color:#687386;
+}
+
+.about{
+    background:#071a3d;
+    color:#fff;
+}
+
+.about-wrap{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+}
+
+.about h2{
+    font-size:36px;
+    margin-bottom:18px;
+}
+
+.about p{
+    color:#ced8e8;
+    margin-bottom:14px;
+}
+
+.notice{
+    margin-top:25px;
+    padding:18px;
+    border-radius:12px;
+    background:rgba(255,255,255,.08);
+    color:#dce6f4;
+    font-size:14px;
+}
+
+.faq{
+    background:#fff;
+}
+
+.faq-wrap{
+    max-width:850px;
+    margin:auto;
+}
+
+details{
+    background:#f7f9fc;
+    border:1px solid #e1e7ef;
+    border-radius:12px;
+    padding:17px 20px;
+    margin-bottom:12px;
+}
+
+summary{
+    cursor:pointer;
+    font-weight:700;
+    color:#071a3d;
+}
+
+details p{
+    color:#687386;
+    padding-top:12px;
+}
+
+.contact{
+    background:#eef6ff;
+    text-align:center;
+}
+
+.contact h2{
+    font-size:36px;
+    color:#071a3d;
+    margin-bottom:10px;
+}
+
+.contact p{
+    color:#687386;
+    margin-bottom:25px;
+}
+
+.contact-buttons{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.contact-btn{
+    display:inline-block;
+    padding:15px 24px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:800;
+}
+
+.phone-btn{
+    background:#087df0;
+    color:#fff;
+}
+
+.whatsapp-btn{
+    background:#25d366;
+    color:#07351c;
+}
+
+.trust{
+    padding:35px 7%;
+    background:#fff;
+}
+
+.trust-grid{
+    max-width:1000px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    text-align:center;
+}
+
+.trust-item{
+    padding:18px;
+    border-radius:12px;
+    background:#f7f9fc;
+    font-weight:700;
+}
+
+.privacy{
+    background:#f6f8fc;
+}
+
+.privacy-box{
+    max-width:900px;
+    margin:auto;
+}
+
+.privacy-box h2{
+    color:#071a3d;
+    margin-bottom:15px;
+}
+
+.privacy-box p{
+    color:#687386;
+    margin-bottom:12px;
+    font-size:14px;
+}
+
+footer{
+    background:#04122c;
+    color:#b9c7dc;
+    padding:35px 7%;
+    text-align:center;
+}
+
+footer strong{
+    color:#fff;
+}
+
+footer a{
+    color:#35b7ff;
+    text-decoration:none;
+}
+
+.footer-links{
+    margin:13px 0;
+}
+
+.footer-links a{
+    margin:0 8px;
+}
+
+.mobile-bar{
+    display:none;
+}
+
+@media(max-width:900px){
+    nav{
+        display:none;
+    }
+
+    .hero-text h1{
+        font-size:40px;
+    }
+
+    .fields{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .service-grid,
+    .route-grid,
+    .trust-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:600px){
+    header{
+        padding:15px 5%;
+    }
+
+    .logo{
+        font-size:24px;
+    }
+
+    .header-phone{
+        font-size:12px;
+        padding:9px 10px;
+    }
+
+    .hero{
+        padding:50px 5%;
+        min-height:650px;
+    }
+
+    .hero-text h1{
+        font-size:34px;
+    }
+
+    .hero-text p{
+        font-size:17px;
+    }
+
+    .fields{
+        grid-template-columns:1fr;
+    }
+
+    section{
+        padding:55px 5%;
+    }
+
+    .section-title h2,
+    .contact h2,
+    .about h2{
+        font-size:29px;
+    }
+
+    footer{
+        padding-bottom:90px;
+    }
+
+    .mobile-bar{
+        position:fixed;
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        left:0;
+        right:0;
+        bottom:0;
+        z-index:2000;
+        box-shadow:0 -3px 15px rgba(0,0,0,.15);
+    }
+
+    .mobile-bar a{
+        padding:15px 5px;
+        text-align:center;
+        font-weight:800;
+        text-decoration:none;
+    }
+
+    .mobile-call{
+        background:#087df0;
+        color:#fff;
+    }
+
+    .mobile-whatsapp{
+        background:#25d366;
+        color:#06391c;
+    }
+}
 </style>
 </head>
+
 <body>
+
 <header>
-  <div class="logo">ENG <span>FLY</span></div>
-  <nav>
-    <a href="#">Ana Sayfa</a><a href="#destinasyonlar">Destinasyonlar</a><a href="#kampanyalar">Kampanyalar</a><a href="#iletisim">İletişim</a>
-  </nav>
+    <div class="logo">ENG <span>FLY</span></div>
+
+    <nav>
+        <a href="#ana-sayfa">Ana Sayfa</a>
+        <a href="#hizmetler">Hizmetlerimiz</a>
+        <a href="#hakkimizda">Hakkımızda</a>
+        <a href="#sss">S.S.S.</a>
+        <a href="#iletisim">İletişim</a>
+    </nav>
+
+    <a class="header-phone" href="tel:+908502410226">
+        ☎ 0850 241 02 26
+    </a>
 </header>
 
 <main>
-<section class="hero">
-<div class="hero-content">
-  <h1>Dünyaya açılan kapınız.</h1>
-  <p>Uçak biletinizi kolayca bulun, seyahatinizi güvenle planlayın.</p>
-  <div class="search-box">
-    <div class="tabs"><button class="active">Gidiş - Dönüş</button><button>Tek Yön</button></div>
-    <form onsubmit="searchFlight(event)">
-      <div class="fields">
-        <label class="field"><small>Nereden</small><input id="from" placeholder="İstanbul" required></label>
-        <label class="field"><small>Nereye</small><input id="to" placeholder="Londra" required></label>
-        <label class="field"><small>Gidiş</small><input type="date" required></label>
-        <label class="field"><small>Dönüş</small><input type="date"></label>
-        <label class="field"><small>Yolcu</small><select><option>1 Yolcu</option><option>2 Yolcu</option><option>3 Yolcu</option><option>4 Yolcu</option><option>5+ Yolcu</option></select></label>
-        <button class="search-btn" type="submit">Uçuş Ara</button>
-      </div>
-    </form>
-  </div>
-</div>
+
+<section class="hero" id="ana-sayfa">
+    <div class="hero-inner">
+
+        <div class="hero-text">
+            <h1>Seyahatiniz ENG FLY ile başlasın.</h1>
+            <p>
+                Yurt içi ve yurt dışı uçuş seçenekleri hakkında bilgi,
+                rezervasyon ve seyahat desteği için ekibimize ulaşın.
+            </p>
+        </div>
+
+        <div class="search-box">
+
+            <div class="search-title">
+                ✈ Uçuşunuz için bilgi alın
+            </div>
+
+            <div class="fields">
+
+                <div class="field">
+                    <label>Nereden?</label>
+                    <input id="from" type="text" placeholder="Örn. İstanbul">
+                </div>
+
+                <div class="field">
+                    <label>Nereye?</label>
+                    <input id="to" type="text" placeholder="Örn. Antalya">
+                </div>
+
+                <div class="field">
+                    <label>Gidiş tarihi</label>
+                    <input id="date" type="date">
+                </div>
+
+                <div class="field">
+                    <label>Yolcu</label>
+                    <select id="passenger">
+                        <option>1 Yolcu</option>
+                        <option>2 Yolcu</option>
+                        <option>3 Yolcu</option>
+                        <option>4 Yolcu</option>
+                        <option>5+ Yolcu</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label>Seyahat türü</label>
+                    <select id="trip">
+                        <option>Tek Yön</option>
+                        <option>Gidiş - Dönüş</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label>Kabin</label>
+                    <select id="cabin">
+                        <option>Ekonomi</option>
+                        <option>Business</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <button class="search-btn" onclick="sendWhatsApp()">
+                WhatsApp'tan Uçuş Bilgisi Al
+            </button>
+
+            <div class="search-note">
+                Bu alan online bilet satışı yapmaz. Talebiniz ENG FLY iletişim hattına yönlendirilir.
+            </div>
+
+        </div>
+
+    </div>
 </section>
 
-<section id="destinasyonlar">
-<div class="title"><h2>Popüler Destinasyonlar</h2><p>Bir sonraki maceranızı keşfedin.</p></div>
-<div class="cards">
-  <article class="card"><img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=900&q=80"><div class="card-body"><h3>İstanbul → Dubai</h3><p>Modern şehirler ve unutulmaz deneyimler.</p><div class="price">₺4.999'dan başlayan fiyatlarla</div></div></article>
-  <article class="card"><img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=900&q=80"><div class="card-body"><h3>İstanbul → Londra</h3><p>İngiltere'nin eşsiz atmosferini keşfedin.</p><div class="price">₺6.499'dan başlayan fiyatlarla</div></div></article>
-  <article class="card"><img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=900&q=80"><div class="card-body"><h3>İstanbul → Paris</h3><p>Aşkın ve sanatın şehrine yolculuk.</p><div class="price">₺5.799'dan başlayan fiyatlarla</div></div></article>
-</div>
+
+<section class="services" id="hizmetler">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Hizmetlerimiz</h2>
+            <p>
+                Seyahatinizin farklı aşamalarında ihtiyaç duyabileceğiniz
+                konularda iletişim ve rezervasyon desteği sunuyoruz.
+            </p>
+        </div>
+
+        <div class="service-grid">
+
+            <div class="service">
+                <div class="service-icon">✈️</div>
+                <h3>Uçuş Seçenekleri</h3>
+                <p>
+                    Yurt içi ve yurt dışı seyahatleriniz için uygun uçuş seçenekleri
+                    hakkında bilgi alabilirsiniz.
+                </p>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">🎫</div>
+                <h3>Rezervasyon Desteği</h3>
+                <p>
+                    Uçuş tercihinize göre rezervasyon sürecinde ekibimizden
+                    destek alabilirsiniz.
+                </p>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">🔄</div>
+                <h3>Değişiklik Bilgilendirmesi</h3>
+                <p>
+                    Mevcut rezervasyonunuzla ilgili değişiklik seçenekleri konusunda
+                    bilgi talep edebilirsiniz.
+                </p>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">🧳</div>
+                <h3>Bagaj Bilgilendirmesi</h3>
+                <p>
+                    Uçuşunuz için geçerli olabilecek bagaj kuralları hakkında
+                    destek alabilirsiniz.
+                </p>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">🌍</div>
+                <h3>Yurt Dışı Uçuşları</h3>
+                <p>
+                    Farklı ülke ve şehirlere yapılacak seyahatler için uçuş
+                    seçeneklerini öğrenebilirsiniz.
+                </p>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">📞</div>
+                <h3>İletişim Desteği</h3>
+                <p>
+                    Uçuş talebinizle ilgili bilgi almak için telefon veya
+                    WhatsApp üzerinden bize ulaşabilirsiniz.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
 </section>
 
-<section class="features" id="kampanyalar">
-<div class="title"><h2>Neden ENG FLY?</h2><p>Seyahatinizin her adımında yanınızdayız.</p></div>
-<div class="feature-grid">
-<div class="feature"><div class="icon">✈️</div><h3>Kolay Bilet Arama</h3><p>İhtiyacınıza uygun uçuşları hızlıca keşfedin.</p></div>
-<div class="feature"><div class="icon">🔒</div><h3>Güvenli İşlem</h3><p>Rezervasyon sürecinizi güvenli ve kolay şekilde yönetin.</p></div>
-<div class="feature"><div class="icon">☎️</div><h3>7/24 Destek</h3><p>Sorularınız için müşteri destek ekibimiz yanınızda.</p></div>
-</div>
+
+<section class="routes">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Popüler Rotalar</h2>
+            <p>
+                Sık tercih edilen bazı uçuş rotaları için ekibimizden bilgi alabilirsiniz.
+            </p>
+        </div>
+
+        <div class="route-grid">
+
+            <div class="route">
+                <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=900&q=80" alt="İstanbul">
+                <div class="route-content">
+                    <h3>İstanbul → Antalya</h3>
+                    <p>Uçuş seçenekleri ve rezervasyon bilgileri için bize ulaşın.</p>
+                </div>
+            </div>
+
+            <div class="route">
+                <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=900&q=80" alt="Londra">
+                <div class="route-content">
+                    <h3>İstanbul → Londra</h3>
+                    <p>Yurt dışı seyahatiniz için uçuş seçeneklerini öğrenin.</p>
+                </div>
+            </div>
+
+            <div class="route">
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=900&q=80" alt="Paris">
+                <div class="route-content">
+                    <h3>İstanbul → Paris</h3>
+                    <p>Seyahatiniz için güncel uçuş seçenekleri hakkında bilgi alın.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 </section>
+
+
+<section class="about" id="hakkimizda">
+
+    <div class="about-wrap">
+
+        <h2>ENG FLY Hakkında</h2>
+
+        <p>
+            ENG FLY, seyahat planlayan kullanıcıların uçuş seçenekleri hakkında
+            bilgi almasına ve rezervasyon süreçlerinde iletişim desteğine
+            ulaşmasına yardımcı olmak amacıyla hizmet verir.
+        </p>
+
+        <p>
+            Amacımız, seyahat talebinizi kolay şekilde iletebileceğiniz,
+            anlaşılır ve ulaşılabilir bir iletişim deneyimi sunmaktır.
+        </p>
+
+        <div class="notice">
+            <strong>Bilgilendirme:</strong>
+            ENG FLY, havayolu şirketlerinin resmi internet sitesi değildir.
+            Havayolu markaları ve ilgili ticari markalar kendi sahiplerine aittir.
+            Uçuş koşulları ve kurallar ilgili havayolu şirketine göre değişebilir.
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="trust">
+
+    <div class="trust-grid">
+
+        <div class="trust-item">
+            📞 Kolay İletişim
+        </div>
+
+        <div class="trust-item">
+            💬 WhatsApp Desteği
+        </div>
+
+        <div class="trust-item">
+            ✈️ Yurt İçi & Yurt Dışı
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="faq" id="sss">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Sık Sorulan Sorular</h2>
+            <p>
+                Uçuş ve rezervasyon süreçleriyle ilgili sık sorulan sorular.
+            </p>
+        </div>
+
+        <div class="faq-wrap">
+
+            <details>
+                <summary>ENG FLY üzerinden nasıl bilgi alabilirim?</summary>
+                <p>
+                    0850 241 02 26 numaralı telefon hattımızdan veya WhatsApp
+                    üzerinden uçuş talebinizi iletebilirsiniz.
+                </p>
+            </details>
+
+            <details>
+                <summary>Web sitesi üzerinden online bilet satın alabilir miyim?</summary>
+                <p>
+                    Hayır. Web sitemiz doğrudan online ödeme veya bilet satışı
+                    gerçekleştirmez. Uçuş bilgisi ve rezervasyon desteği için
+                    iletişim kanallarımızı kullanabilirsiniz.
+                </p>
+            </details>
+
+            <details>
+                <summary>Bilet değişikliği hakkında bilgi alabilir miyim?</summary>
+                <p>
+                    Evet. Rezervasyonunuzun koşullarına bağlı olarak geçerli
+                    seçenekler hakkında bilgi almak için ekibimize ulaşabilirsiniz.
+                </p>
+            </details>
+
+            <details>
+                <summary>Bagaj hakkımı nasıl öğrenebilirim?</summary>
+                <p>
+                    Bagaj hakları havayolu, uçuş ve bilet sınıfına göre değişebilir.
+                    Rezervasyon bilgilerinizi paylaşarak destek talep edebilirsiniz.
+                </p>
+            </details>
+
+            <details>
+                <summary>Yurt dışı uçuşları için destek veriyor musunuz?</summary>
+                <p>
+                    Evet. Yurt dışı uçuş seçenekleri hakkında bilgi ve rezervasyon
+                    desteği için bizimle iletişime geçebilirsiniz.
+                </p>
+            </details>
+
+        </div>
+
+    </div>
+
+</section>
+
 
 <section class="contact" id="iletisim">
-  <div class="title">
-    <h2>Uçuşunuz için bize ulaşın</h2>
-    <p>Rezervasyon ve bilgi almak için ekibimizle iletişime geçebilirsiniz.</p>
-  </div>
 
-  <a class="contact-btn" href="tel:+908502410226">
-    📞 Hemen Ara: 0850 241 02 26
-  </a>
+    <div class="container">
 
-  <a class="contact-btn" href="https://wa.me/908502410226" target="_blank" rel="noopener">
-  💬 WhatsApp'tan Yaz
-</a>
+        <h2>Uçuşunuz için bize ulaşın</h2>
+
+        <p>
+            Uçuş seçenekleri ve rezervasyon desteği için ENG FLY iletişim
+            kanallarından bize ulaşabilirsiniz.
+        </p>
+
+        <div class="contact-buttons">
+
+            <a class="contact-btn phone-btn" href="tel:+908502410226">
+                📞 Hemen Ara: 0850 241 02 26
+            </a>
+
+            <a class="contact-btn whatsapp-btn"
+               href="https://wa.me/908502410226"
+               target="_blank"
+               rel="noopener">
+                💬 WhatsApp'tan Yaz
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="privacy" id="gizlilik">
+
+    <div class="privacy-box">
+
+        <h2>Gizlilik ve Kişisel Veriler</h2>
+
+        <p>
+            ENG FLY web sitesinde ziyaretçilerin iletişim amacıyla ilettiği
+            bilgiler yalnızca talebin yanıtlanması ve ilgili hizmetin
+            yürütülmesi amacıyla kullanılmalıdır.
+        </p>
+
+        <p>
+            Telefon veya WhatsApp üzerinden paylaşılan kişisel bilgilerinizi,
+            seyahat talebinizin değerlendirilmesi için gerekli olmadığı sürece
+            paylaşmamanızı öneririz.
+        </p>
+
+        <p>
+            Kişisel verilerle ilgili talepleriniz için ENG FLY iletişim
+            kanallarından bize ulaşabilirsiniz.
+        </p>
+
+    </div>
+
 </section>
 
 </main>
 
-<footer>© 2026 ENG FLY — Tüm hakları saklıdır.</footer>
+
+<footer>
+
+    <strong>ENG FLY</strong>
+
+    <div class="footer-links">
+        <a href="#hakkimizda">Hakkımızda</a>
+        <a href="#hizmetler">Hizmetlerimiz</a>
+        <a href="#sss">S.S.S.</a>
+        <a href="#gizlilik">Gizlilik</a>
+    </div>
+
+    <p>
+        Telefon:
+        <a href="tel:+908502410226">0850 241 02 26</a>
+    </p>
+
+    <p style="margin-top:12px;font-size:13px;">
+        © 2026 ENG FLY – Tüm hakları saklıdır.
+    </p>
+
+</footer>
+
+
+<div class="mobile-bar">
+
+    <a class="mobile-call" href="tel:+908502410226">
+        📞 Hemen Ara
+    </a>
+
+    <a class="mobile-whatsapp"
+       href="https://wa.me/908502410226"
+       target="_blank"
+       rel="noopener">
+        💬 WhatsApp
+    </a>
+
+</div>
+
 
 <script>
-function searchFlight(e){
-  e.preventDefault();
-  const from=document.getElementById('from').value;
-  const to=document.getElementById('to').value;
-  alert('Uçuş aramanız alındı: ' + from + ' → ' + to + '\\nDemo sürümünde gerçek uçuş sonucu gösterilmemektedir.');
+
+function sendWhatsApp(){
+
+    const from = document.getElementById("from").value || "Belirtilmedi";
+    const to = document.getElementById("to").value || "Belirtilmedi";
+    const date = document.getElementById("date").value || "Belirtilmedi";
+    const passenger = document.getElementById("passenger").value;
+    const trip = document.getElementById("trip").value;
+    const cabin = document.getElementById("cabin").value;
+
+    const message =
+    "Merhaba ENG FLY, uçuş hakkında bilgi almak istiyorum.%0A%0A" +
+    "Nereden: " + encodeURIComponent(from) + "%0A" +
+    "Nereye: " + encodeURIComponent(to) + "%0A" +
+    "Tarih: " + encodeURIComponent(date) + "%0A" +
+    "Yolcu: " + encodeURIComponent(passenger) + "%0A" +
+    "Seyahat Türü: " + encodeURIComponent(trip) + "%0A" +
+    "Kabin: " + encodeURIComponent(cabin);
+
+    window.open(
+        "https://wa.me/908502410226?text=" + message,
+        "_blank"
+    );
 }
+
 </script>
+
 </body>
 </html>
