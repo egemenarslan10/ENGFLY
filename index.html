@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENG FLY | Uçak Bileti</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;color:#172033;background:#f5f8fc}
+header{background:#071a3d;color:#fff;padding:20px 7%;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:28px;font-weight:800;letter-spacing:1px}.logo span{color:#35b7ff}
+nav a{color:#fff;text-decoration:none;margin-left:28px;font-size:15px}
+.hero{min-height:570px;background:linear-gradient(90deg,rgba(4,19,48,.9),rgba(4,19,48,.3)),url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1800&q=80') center/cover;display:flex;align-items:center;padding:60px 7%}
+.hero-content{max-width:1100px;width:100%;color:#fff}.hero h1{font-size:54px;margin-bottom:14px}.hero p{font-size:20px;margin-bottom:35px}
+.search-box{background:#fff;border-radius:18px;padding:22px;color:#172033;box-shadow:0 15px 40px rgba(0,0,0,.2)}
+.tabs{display:flex;gap:10px;margin-bottom:18px}.tabs button{border:0;background:#eef3f8;padding:11px 18px;border-radius:8px;cursor:pointer}.tabs .active{background:#087df0;color:#fff}
+.fields{display:grid;grid-template-columns:1.2fr 1.2fr 1fr 1fr .8fr;gap:12px}
+.field{border:1px solid #d9e0e8;border-radius:10px;padding:12px}.field small{display:block;color:#697586;margin-bottom:5px}.field input,.field select{width:100%;border:0;outline:0;font-size:15px;background:transparent}
+.search-btn{border:0;border-radius:10px;background:#087df0;color:#fff;font-weight:bold;font-size:16px;cursor:pointer;padding:0 18px}
+section{padding:70px 7%}.title{text-align:center;margin-bottom:35px}.title h2{font-size:34px;margin-bottom:8px}.title p{color:#687386}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 7px 25px rgba(22,38,65,.08)}.card img{width:100%;height:190px;object-fit:cover}.card-body{padding:20px}.card-body h3{margin-bottom:8px}.price{color:#087df0;font-size:22px;font-weight:bold;margin-top:15px}
+.features{background:#fff}.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}.feature{padding:25px;border:1px solid #e6ebf1;border-radius:15px}.icon{font-size:32px;margin-bottom:12px}.feature p{color:#687386;margin-top:8px;line-height:1.5}
+.contact{background:#071a3d;color:#fff;text-align:center}.contact p{color:#cbd6e8;margin:10px 0 25px}.contact-btn{display:inline-block;background:#35b7ff;color:#061735;text-decoration:none;padding:14px 25px;border-radius:10px;font-weight:bold}
+footer{background:#04122c;color:#aebbd0;text-align:center;padding:22px}
+@media(max-width:850px){nav{display:none}.hero h1{font-size:40px}.fields{grid-template-columns:1fr 1fr}.search-btn{height:50px}.cards,.feature-grid{grid-template-columns:1fr}}
+@media(max-width:520px){.hero{min-height:650px;padding:35px 5%}.hero h1{font-size:34px}.search-box{padding:15px}.fields{grid-template-columns:1fr}section{padding:50px 5%}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">ENG <span>FLY</span></div>
+  <nav>
+    <a href="#">Ana Sayfa</a><a href="#destinasyonlar">Destinasyonlar</a><a href="#kampanyalar">Kampanyalar</a><a href="#iletisim">İletişim</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+<div class="hero-content">
+  <h1>Dünyaya açılan kapınız.</h1>
+  <p>Uçak biletinizi kolayca bulun, seyahatinizi güvenle planlayın.</p>
+  <div class="search-box">
+    <div class="tabs"><button class="active">Gidiş - Dönüş</button><button>Tek Yön</button></div>
+    <form onsubmit="searchFlight(event)">
+      <div class="fields">
+        <label class="field"><small>Nereden</small><input id="from" placeholder="İstanbul" required></label>
+        <label class="field"><small>Nereye</small><input id="to" placeholder="Londra" required></label>
+        <label class="field"><small>Gidiş</small><input type="date" required></label>
+        <label class="field"><small>Dönüş</small><input type="date"></label>
+        <label class="field"><small>Yolcu</small><select><option>1 Yolcu</option><option>2 Yolcu</option><option>3 Yolcu</option><option>4 Yolcu</option><option>5+ Yolcu</option></select></label>
+        <button class="search-btn" type="submit">Uçuş Ara</button>
+      </div>
+    </form>
+  </div>
+</div>
+</section>
+
+<section id="destinasyonlar">
+<div class="title"><h2>Popüler Destinasyonlar</h2><p>Bir sonraki maceranızı keşfedin.</p></div>
+<div class="cards">
+  <article class="card"><img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=900&q=80"><div class="card-body"><h3>İstanbul → Dubai</h3><p>Modern şehirler ve unutulmaz deneyimler.</p><div class="price">₺4.999'dan başlayan fiyatlarla</div></div></article>
+  <article class="card"><img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=900&q=80"><div class="card-body"><h3>İstanbul → Londra</h3><p>İngiltere'nin eşsiz atmosferini keşfedin.</p><div class="price">₺6.499'dan başlayan fiyatlarla</div></div></article>
+  <article class="card"><img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=900&q=80"><div class="card-body"><h3>İstanbul → Paris</h3><p>Aşkın ve sanatın şehrine yolculuk.</p><div class="price">₺5.799'dan başlayan fiyatlarla</div></div></article>
+</div>
+</section>
+
+<section class="features" id="kampanyalar">
+<div class="title"><h2>Neden ENG FLY?</h2><p>Seyahatinizin her adımında yanınızdayız.</p></div>
+<div class="feature-grid">
+<div class="feature"><div class="icon">✈️</div><h3>Kolay Bilet Arama</h3><p>İhtiyacınıza uygun uçuşları hızlıca keşfedin.</p></div>
+<div class="feature"><div class="icon">🔒</div><h3>Güvenli İşlem</h3><p>Rezervasyon sürecinizi güvenli ve kolay şekilde yönetin.</p></div>
+<div class="feature"><div class="icon">☎️</div><h3>7/24 Destek</h3><p>Sorularınız için müşteri destek ekibimiz yanınızda.</p></div>
+</div>
+</section>
+
+<section class="contact" id="iletisim">
+<div class="title"><h2>Uçuşunuz için bize ulaşın</h2><p>Rezervasyon ve bilgi almak için ekibimizle iletişime geçebilirsiniz.</p></div>
+<a class="contact-btn" href="tel:+900000000000">📞 Bize Ulaşın</a>
+</section>
+</main>
+
+<footer>© 2026 ENG FLY — Tüm hakları saklıdır.</footer>
+
+<script>
+function searchFlight(e){
+  e.preventDefault();
+  const from=document.getElementById('from').value;
+  const to=document.getElementById('to').value;
+  alert('Uçuş aramanız alındı: ' + from + ' → ' + to + '\\nDemo sürümünde gerçek uçuş sonucu gösterilmemektedir.');
+}
+</script>
+</body>
+</html>
