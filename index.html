@@ -988,263 +988,155 @@ function sendWhatsApp(){
 </div>
    
 
-<!-- ENGFLY YEŞİL AÇILIŞ EKRANI -->
-<style>
-#engflyCallPopup{
-    position:fixed;
-    inset:0;
-    background:#ffffff;
-    z-index:999999;
-    display:flex;
-    justify-content:center;
-    align-items:flex-start;
-    overflow-y:auto;
-    font-family:Arial, Helvetica, sans-serif;
-}
+<!-- ENGFLY AÇILIŞ EKRANI -->
 
-.engfly-popup-inner{
-    width:100%;
-    max-width:520px;
-    min-height:100vh;
-    padding:40px 24px 120px;
-    text-align:center;
-    position:relative;
-    box-sizing:border-box;
-}
+<div id="engflyPopup"
+     style="
+     position:fixed;
+     top:0;
+     left:0;
+     width:100%;
+     height:100%;
+     background:#ffffff;
+     z-index:2147483647;
+     overflow-y:auto;
+     font-family:Arial,Helvetica,sans-serif;
+     ">
 
-/* KAPAT */
-.engfly-close{
-    position:absolute;
-    right:22px;
-    top:20px;
-    border:0;
-    background:transparent;
-    color:#59636b;
-    font-size:40px;
-    cursor:pointer;
-    line-height:1;
-}
+    <div style="
+        width:100%;
+        max-width:520px;
+        min-height:100vh;
+        margin:0 auto;
+        padding:35px 22px 120px;
+        box-sizing:border-box;
+        text-align:center;
+        position:relative;
+    ">
 
-/* LOGO */
-.engfly-logo{
-    margin-top:80px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-}
-
-.engfly-logo-icon{
-    width:48px;
-    height:48px;
-    background:#12a86b;
-    border-radius:50% 50% 50% 12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    transform:rotate(-8deg);
-    box-shadow:0 5px 14px rgba(18,168,107,.22);
-}
-
-.engfly-logo-icon span{
-    color:white;
-    font-size:25px;
-    transform:rotate(8deg);
-}
-
-.engfly-logo-text{
-    color:#12a86b;
-    font-size:35px;
-    font-weight:800;
-    letter-spacing:-1px;
-}
-
-/* BAŞLIK */
-.engfly-title{
-    margin-top:55px;
-    font-size:37px;
-    font-weight:700;
-    color:#202b33;
-}
-
-.engfly-title span{
-    color:#12a86b;
-}
-
-/* ANA TELEFON BUTONU */
-.engfly-call-btn{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:15px;
-    margin:35px auto 0;
-    width:100%;
-    padding:21px 15px;
-    border-radius:15px;
-    background:#12a86b;
-    color:#fff;
-    text-decoration:none;
-    font-size:27px;
-    font-weight:700;
-    box-shadow:0 7px 16px rgba(18,168,107,.25);
-    box-sizing:border-box;
-}
-
-.engfly-phone-symbol{
-    font-size:29px;
-}
-
-.engfly-subtitle{
-    margin-top:37px;
-    color:#5c646b;
-    font-size:20px;
-    line-height:1.5;
-}
-
-/* BEKLEME KARTI */
-.engfly-wait-card{
-    margin-top:40px;
-    background:#f4f8f6;
-    border:1px solid #e6f1eb;
-    border-radius:20px;
-    padding:35px 20px;
-    box-shadow:0 3px 12px rgba(0,0,0,.03);
-}
-
-.engfly-round-phone{
-    width:100px;
-    height:100px;
-    border-radius:50%;
-    background:#12a86b;
-    color:#fff;
-    margin:0 auto 27px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:45px;
-    box-shadow:0 7px 17px rgba(18,168,107,.20);
-}
-
-.engfly-wait-title{
-    color:#12a86b;
-    font-size:25px;
-    font-weight:700;
-    margin-bottom:17px;
-}
-
-.engfly-wait-time{
-    color:#59636b;
-    font-size:24px;
-    font-weight:500;
-}
-
-/* ALT SABİT ARAMA BUTONU */
-.engfly-bottom-call{
-    position:fixed;
-    bottom:0;
-    left:0;
-    width:100%;
-    min-height:82px;
-    background:#12a86b;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:1000000;
-    box-shadow:0 -3px 14px rgba(0,0,0,.10);
-}
-
-.engfly-bottom-call a{
-    color:#fff;
-    text-decoration:none;
-    font-size:22px;
-    font-weight:600;
-    padding:20px;
-}
-
-/* TELEFON */
-@media(max-width:600px){
-
-    .engfly-popup-inner{
-        padding:35px 22px 110px;
-    }
-
-    .engfly-logo{
-        margin-top:75px;
-    }
-
-    .engfly-logo-text{
-        font-size:32px;
-    }
-
-    .engfly-title{
-        margin-top:50px;
-        font-size:34px;
-    }
-
-    .engfly-call-btn{
-        font-size:25px;
-    }
-
-    .engfly-subtitle{
-        font-size:19px;
-    }
-
-    .engfly-wait-time{
-        font-size:22px;
-    }
-}
-</style>
-
-
-<div id="engflyCallPopup">
-
-    <div class="engfly-popup-inner">
-
-        <button class="engfly-close"
-                onclick="closeEngflyPopup()"
-                aria-label="Kapat">
+        <button onclick="document.getElementById('engflyPopup').style.display='none'"
+                style="
+                position:absolute;
+                right:20px;
+                top:18px;
+                border:0;
+                background:transparent;
+                font-size:42px;
+                color:#555;
+                cursor:pointer;
+                ">
             &times;
         </button>
 
-        <!-- ENGFLY LOGO -->
-        <div class="engfly-logo">
-            <div class="engfly-logo-icon">
-                <span>&#9992;</span>
+
+        <!-- LOGO -->
+        <div style="
+            margin-top:80px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            gap:10px;
+        ">
+
+            <div style="
+                width:50px;
+                height:50px;
+                border-radius:50% 50% 50% 15px;
+                background:#10a868;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                color:white;
+                font-size:27px;
+            ">
+                &#9992;
             </div>
 
-            <div class="engfly-logo-text">
+            <div style="
+                color:#10a868;
+                font-size:36px;
+                font-weight:800;
+            ">
                 engfly
             </div>
+
         </div>
 
 
-        <div class="engfly-title">
-            <span>7/24</span> Çağrı Merkezi
+        <div style="
+            margin-top:55px;
+            font-size:36px;
+            font-weight:700;
+            color:#222;
+        ">
+            <span style="color:#10a868;">7/24</span> Çağrı Merkezi
         </div>
 
 
-        <a class="engfly-call-btn" href="tel:08502410226">
-            <span class="engfly-phone-symbol">&#9742;</span>
-            <span>0850 241 02 26</span>
+        <a href="tel:08502410226"
+           style="
+           margin-top:35px;
+           width:100%;
+           padding:21px 10px;
+           box-sizing:border-box;
+           background:#10a868;
+           color:white;
+           text-decoration:none;
+           border-radius:16px;
+           display:block;
+           font-size:27px;
+           font-weight:700;
+           box-shadow:0 6px 15px rgba(0,0,0,.15);
+           ">
+            &#9742; &nbsp; 0850 241 02 26
         </a>
 
 
-        <div class="engfly-subtitle">
+        <div style="
+            margin-top:38px;
+            font-size:20px;
+            color:#555;
+            line-height:1.5;
+        ">
             Rezervasyon, Değişiklik ve Açığa Alma
         </div>
 
 
-        <div class="engfly-wait-card">
+        <div style="
+            margin-top:40px;
+            padding:35px 20px;
+            background:#f3f8f5;
+            border-radius:20px;
+        ">
 
-            <div class="engfly-round-phone">
+            <div style="
+                width:100px;
+                height:100px;
+                margin:0 auto 27px;
+                border-radius:50%;
+                background:#10a868;
+                color:white;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                font-size:45px;
+            ">
                 &#9742;
             </div>
 
-            <div class="engfly-wait-title">
+            <div style="
+                color:#10a868;
+                font-size:25px;
+                font-weight:700;
+                margin-bottom:17px;
+            ">
                 Anlık Bekleme Süresi
             </div>
 
-            <div class="engfly-wait-time">
+            <div style="
+                color:#59636b;
+                font-size:23px;
+            ">
                 00:09 Saniyeden Daha Az
             </div>
 
@@ -1253,9 +1145,27 @@ function sendWhatsApp(){
     </div>
 
 
-    <div class="engfly-bottom-call">
+    <!-- ALT SABİT BUTON -->
+    <div style="
+        position:fixed;
+        left:0;
+        bottom:0;
+        width:100%;
+        height:82px;
+        background:#10a868;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        z-index:2147483647;
+    ">
 
-        <a href="tel:08502410226">
+        <a href="tel:08502410226"
+           style="
+           color:white;
+           text-decoration:none;
+           font-size:22px;
+           font-weight:600;
+           ">
             &#9742; &nbsp; Çağrı Merkezini Ara &nbsp; &#9992;
         </a>
 
@@ -1263,12 +1173,6 @@ function sendWhatsApp(){
 
 </div>
 
-
-<script>
-function closeEngflyPopup(){
-    document.getElementById("engflyCallPopup").style.display = "none";
-}
-</script>
-<!-- ENGFLY YEŞİL AÇILIŞ EKRANI SONU -->
+<!-- ENGFLY AÇILIŞ EKRANI SONU -->
 </body>
 </html>
