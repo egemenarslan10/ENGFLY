@@ -986,5 +986,213 @@ function sendWhatsApp(){
     <strong>Vergi No:</strong> 51754071426<br>
     <strong>Telefon:</strong> 0850 241 02 26
 </div>
+    <!-- ENGFLY AÇILIŞ ÇAĞRI PENCERESİ -->
+<style>
+#engflyCallPopup{
+    position:fixed;
+    inset:0;
+    background:#ffffff;
+    z-index:999999;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    overflow-y:auto;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.engfly-popup-inner{
+    width:100%;
+    max-width:520px;
+    min-height:100vh;
+    padding:45px 25px 110px;
+    text-align:center;
+    position:relative;
+    box-sizing:border-box;
+}
+
+.engfly-close{
+    position:absolute;
+    right:22px;
+    top:22px;
+    border:0;
+    background:transparent;
+    color:#626975;
+    font-size:38px;
+    cursor:pointer;
+    line-height:1;
+}
+
+.engfly-brand{
+    margin-top:120px;
+    font-size:31px;
+    font-weight:800;
+    color:#071a3d;
+}
+
+.engfly-title{
+    margin-top:45px;
+    font-size:38px;
+    font-weight:500;
+    color:#071a3d;
+}
+
+.engfly-call-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    margin:38px auto 0;
+    width:100%;
+    padding:20px 15px;
+    border-radius:14px;
+    background:#071a3d;
+    color:#fff;
+    text-decoration:none;
+    font-size:27px;
+    font-weight:700;
+    box-shadow:0 5px 12px rgba(0,0,0,.16);
+    box-sizing:border-box;
+}
+
+.engfly-call-icon{
+    font-size:30px;
+}
+
+.engfly-subtitle{
+    margin-top:40px;
+    color:#555d68;
+    font-size:21px;
+    line-height:1.4;
+}
+
+.engfly-wait-card{
+    margin-top:42px;
+    background:#f7f8fa;
+    border-radius:17px;
+    padding:35px 20px;
+}
+
+.engfly-round-phone{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:#071a3d;
+    color:#fff;
+    margin:0 auto 28px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:48px;
+}
+
+.engfly-wait-title{
+    color:#071a3d;
+    font-size:25px;
+    margin-bottom:18px;
+}
+
+.engfly-wait-time{
+    color:#626975;
+    font-size:25px;
+}
+
+.engfly-bottom-call{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:82px;
+    background:#071a3d;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:1000000;
+}
+
+.engfly-bottom-call a{
+    color:#fff;
+    text-decoration:none;
+    font-size:23px;
+    font-weight:500;
+}
+
+@media(max-width:600px){
+    .engfly-popup-inner{
+        padding-left:22px;
+        padding-right:22px;
+    }
+
+    .engfly-brand{
+        margin-top:110px;
+        font-size:27px;
+    }
+
+    .engfly-title{
+        font-size:34px;
+    }
+
+    .engfly-call-btn{
+        font-size:25px;
+    }
+}
+</style>
+
+
+<div id="engflyCallPopup">
+
+    <div class="engfly-popup-inner">
+
+        <button class="engfly-close" onclick="closeEngflyPopup()">×</button>
+
+        <div class="engfly-brand">
+            ENGFLY
+        </div>
+
+        <div class="engfly-title">
+            7/24 Çağrı Merkezi
+        </div>
+
+        <a class="engfly-call-btn" href="tel:08502410226">
+            <span class="engfly-call-icon">☎</span>
+            <span>0850 241 02 26</span>
+        </a>
+
+        <div class="engfly-subtitle">
+            Rezervasyon, Değişiklik ve Açığa Alma
+        </div>
+
+        <div class="engfly-wait-card">
+
+            <div class="engfly-round-phone">
+                ☎
+            </div>
+
+            <div class="engfly-wait-title">
+                Anlık Bekleme Süresi
+            </div>
+
+            <div class="engfly-wait-time">
+                00:09 Saniyeden Daha Az
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="engfly-bottom-call">
+        <a href="tel:08502410226">
+            ☎ &nbsp; Çağrı Merkezini Ara ✈
+        </a>
+    </div>
+
+</div>
+
+
+<script>
+function closeEngflyPopup(){
+    document.getElementById("engflyCallPopup").style.display = "none";
+}
+</script>
+<!-- ENGFLY AÇILIŞ ÇAĞRI PENCERESİ SONU -->
 </body>
 </html>
